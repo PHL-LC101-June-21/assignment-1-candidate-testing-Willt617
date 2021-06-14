@@ -13,15 +13,30 @@ let correctAnswers;
 let candidateAnswers;
 
 
-function askForName() {
+function askForName() 
+{
   // TODO 1.1b: Ask for candidate's name //
+ candidateName = input.question("Please Enter Your Name: ");
+ console.log();
+ console.log("Hello " + candidateName + "! Please answer the following questions...");
+ console.log();
 
 }
 
-function askQuestion() {
+function askQuestion() 
+{
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
+question = "Who was the first American woman in space?  ";
+correctAnswer = "Sally Ride";
+candidateAnswer = input.question(question);
 
+console.log();
 
+if(candidateAnswer == correctAnswer)
+  console.log("That is correct!");
+  else
+  console.log("That is incorrect...")
+  
 }
 
 function gradeQuiz(candidateAnswers) {
