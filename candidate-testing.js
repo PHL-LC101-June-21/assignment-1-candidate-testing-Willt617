@@ -45,18 +45,7 @@ for( let i = 0; i < question.length; i++)
     console.log(`Your answer was ${candidateAnswer}, That is Incorrect`);
 }
 
-correctAnswer = "Sally Ride";
-
-
-console.log();
-
-if(candidateAnswer == correctAnswer)
-  console.log("That is correct!");
-  else
-  console.log("That is incorrect...")
-  
 }
-
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
