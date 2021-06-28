@@ -5,10 +5,10 @@ const input = require('readline-sync');
 // TODO 1.1a: Define candidateName // 
 let candidateName;
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
-let correctAnswer = [ `Sally Ride`,
+let correctAnswer = [ `sally ride`,
                       `true`,
                       `40`,
-                      `Trajectory`,
+                      `trajectory`,
                       `3` ];
 const question = [ `Who was the first American woman in space? `,
                      `True or false: 5 kilometer == 5000 meters? `,
@@ -18,7 +18,7 @@ const question = [ `Who was the first American woman in space? `,
 let candidateAnswer;
 let questions;
 let correctAnswers;
-let candidateAnswers;
+let candidateAnswers = [];
 
 
 function askForName() 
@@ -34,27 +34,49 @@ function askForName()
 function askQuestion() 
 {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-for( let i = 0; i < question.length; i++)
-{
-  console.log();
-  candidateAnswer = input.question(question[i]);
-  console.log();
-  if(candidateAnswer == correctAnswer[i])
-    console.log(`Your answer was ${candidateAnswer}, That is Correct`);
-    else
-    console.log(`Your answer was ${candidateAnswer}, That is Incorrect`);
-}
-
+	for( let i = 0; i < question.length; i++)
+	{
+		console.log();
+		candidateAnswers.push(input.question(question[i]));
+		console.log();
+	}
 }
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
 
-
-  let grade;
-  
-
-  return grade;
+  let grade = 0;
+  for(let i = 0; i < candidateAnswers.length; i++)
+	{
+		if(candidateAnswers[i].toLowerCase() == correctAnswer[i])
+		{
+			console.log(`Your answer for question ${i+1} was "${candidateAnswers[i]}"`);
+			console.log("That was Correct");
+			console.log();
+			grade = grade + 1;
+		}
+			else
+			{
+				console.log(`Your answer for question ${i+1} was "${candidateAnswers[i]}"`);
+				console.log("That was Incorrect");
+				console.log(`The correct answer is ${correctAnswer[i]}`)
+				console.log();
+			}
+	}
+	if(grade >= 4)
+	{
+		grade = (grade/5)*100
+		console.log();
+		console.log(`Your grade is ${grade}%`);
+		console.log("YOU PASSED!!!");
+	}
+		else
+		{
+			grade = (grade/5)*100
+			console.log();
+			console.log(`Your grade is ${grade}%`);
+			console.log("YOU FAILED...");
+		}
 }
 
 function runProgram() {
